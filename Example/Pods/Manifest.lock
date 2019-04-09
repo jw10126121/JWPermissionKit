@@ -1,0 +1,16 @@
+PODS:
+  - JWPermissionKit (0.0.3)
+
+DEPENDENCIES:
+  - JWPermissionKit (from `../`)
+
+EXTERNAL SOURCES:
+  JWPermissionKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JWPermissionKit: f0a3084ecb11101be17afda13098c5286a822ada
+
+PODFILE CHECKSUM: 7c9aee8ae07fc45845134ef3700ef9a845cc8830
+
+COCOAPODS: 1.7.0.beta.2

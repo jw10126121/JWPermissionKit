@@ -1,0 +1,6 @@
+framework module JWPermissionKit {
+  umbrella header "JWPermissionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "JWPermissionKit",
+  "version": "0.0.3",
+  "summary": "App权限管理",
+  "homepage": "https://github.com/jw10126121/JWPermissionKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jw10126121": "10126121@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/jw10126121/JWPermissionKit.git",
+    "tag": "0.0.3"
+  },
+  "source_files": "JWPermissionKit/Classes/**/*.swift",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "swift_versions": [
+    "4.2",
+    "5.0"
+  ]
+}

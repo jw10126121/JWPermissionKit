@@ -1,0 +1,13 @@
+use_frameworks!
+platform :ios, '9.0'
+inhibit_all_warnings!       #忽略所有警告
+
+target 'JWPermissionKit_Example' do
+  pod 'JWPermissionKit', :path => '../'
+
+  target 'JWPermissionKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
