@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		058EEC7CB1D2365ADC33FBA1905A5998 /* Pods-JWPermissionKit_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F72C018EAD6CE892F5D7972697155AE8 /* Pods-JWPermissionKit_Tests-dummy.m */; };
+		073959820C4E256BC9FAF072CBCA9413 /* JWPermissionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82DB3FE4820EDA20BA7327733383092B /* JWPermissionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0A2935618494AC3CE915D6EBD3D2570D /* JWPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC872C94255074D19EB03A150A189578 /* JWPermissionStatus.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		1C35E6FE89F8B607B5769D8F040208CC /* Pods-JWPermissionKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FBBAA09983376710ED2A54CA9C5901E7 /* Pods-JWPermissionKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		27E3C93949B351ACFE5A9F323BF52170 /* JWPermissionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 576DF1E540BE03D95F03EA840645F812 /* JWPermissionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2AE43A00BDB8B60D46EB52CEBEF82325 /* JWPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5E1386A15D091E5BEB066BF2B5845A4 /* JWPermissionStatus.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		56E60AE4A9936D06245FA01C5E88C248 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		467ED65F4DBD155D1F7E6C7A11F6314C /* JWPermissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2180B7D5FEE3422A597D3DB611D479E /* JWPermissionType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		7F335FC5DE1E6C84EF9F9AD490BE9020 /* Pods-JWPermissionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 16EAE31481CA6DAB501C7241277318B7 /* Pods-JWPermissionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E8AEB207BBEF4739AD2E185BDCAE93C /* JWPermissionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275FACE1AD3DED832F126EF6AFB8655 /* JWPermissionType.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
-		BF561E43272602CD32CAB477812CE908 /* JWPermissionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9934FEECF6C12A018799DC169A8EEF36 /* JWPermissionKit-dummy.m */; };
+		84B1CA7082AC791994AF4203670575F2 /* JWPermissionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC2F0DC7DE39B03A947BB302F7F722B2 /* JWPermissionKit-dummy.m */; };
+		96181CFE60AED55D89E54440C0000774 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B9656E217DEA709DF2E02CC2094AAC /* Microphone.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		A28C90FB34C198E3D276CF135EB19293 /* JWPermissionAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF9AB4AA71B900EE83CCB620CC72685 /* JWPermissionAlert.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
+		B9EE4A23C4D99FDEBDD0A6905EDD1744 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		E08144C594FE2EBD2498AFF61BE9AA7F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
+		E2D84A343E8FAFCF493855D79989D074 /* JWPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3D38BDCE8836AB34CC29D4EBCE15AA /* JWPermission.swift */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		EC7B5626DF33182510313BB872FFCA4D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */; };
 		F14DC9E5BCB5F52FBEADD2D80D9C4AA4 /* Pods-JWPermissionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B46D65138CB2C1A2B184A2C46A14371D /* Pods-JWPermissionKit_Example-dummy.m */; };
 /* End PBXBuildFile section */
@@ -43,42 +46,45 @@
 		190D61DA43F959E6B1FFD6AC4309BAA8 /* Pods-JWPermissionKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-JWPermissionKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		1C223EA3613D1B56814CD825C35B1AAA /* Pods-JWPermissionKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JWPermissionKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		1D10C1CAA8C79BC3B479CB5FEBEA57ED /* Pods-JWPermissionKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JWPermissionKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		28F615154538CFE21A45DA273B55C9DB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
-		450CE781B10787AA2231FBCCCD36106C /* JWPermissionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWPermissionKit-Info.plist"; sourceTree = "<group>"; };
-		576DF1E540BE03D95F03EA840645F812 /* JWPermissionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWPermissionKit-umbrella.h"; sourceTree = "<group>"; };
-		5801A3FF36918080F92D76E5DB962234 /* JWPermissionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWPermissionKit-prefix.pch"; sourceTree = "<group>"; };
+		2143F08CAFABFAE8DB7982139987676C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		320BD68E5C90193B7BE30D038B69598B /* JWPermissionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "JWPermissionKit-Info.plist"; sourceTree = "<group>"; };
+		3B50C629596D36A10A9EF82A8FDB6217 /* JWPermissionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JWPermissionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		47B9656E217DEA709DF2E02CC2094AAC /* Microphone.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
 		5A387BC5B9864E4F0EBD0E409040E1C6 /* Pods-JWPermissionKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JWPermissionKit_Example-Info.plist"; sourceTree = "<group>"; };
 		67E21F34757703107D8CFECBA2DF553B /* Pods-JWPermissionKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JWPermissionKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		7275FACE1AD3DED832F126EF6AFB8655 /* JWPermissionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermissionType.swift; path = JWPermissionKit/Classes/JWPermissionType.swift; sourceTree = "<group>"; };
-		9934FEECF6C12A018799DC169A8EEF36 /* JWPermissionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWPermissionKit-dummy.m"; sourceTree = "<group>"; };
+		6B74336DE43A4CE311B19797B70F5D85 /* JWPermissionKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWPermissionKit.xcconfig; sourceTree = "<group>"; };
+		76AB5E541F8BCF0177CA5F49736A5598 /* JWPermissionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWPermissionKit.modulemap; sourceTree = "<group>"; };
+		7F1E5B25FA7C0B53867C8B0E63BBBA90 /* JWPermissionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWPermissionKit-prefix.pch"; sourceTree = "<group>"; };
+		82DB3FE4820EDA20BA7327733383092B /* JWPermissionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JWPermissionKit-umbrella.h"; sourceTree = "<group>"; };
 		99CDAAB16F67B15AFD55CB561415E5ED /* Pods-JWPermissionKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JWPermissionKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		9C3D38BDCE8836AB34CC29D4EBCE15AA /* JWPermission.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermission.swift; path = JWPermissionKit/Classes/JWPermission.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A06DDC84A136B72D6EDAD35FBF48FB01 /* Pods-JWPermissionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JWPermissionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		AC872C94255074D19EB03A150A189578 /* JWPermissionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermissionStatus.swift; path = JWPermissionKit/Classes/JWPermissionStatus.swift; sourceTree = "<group>"; };
+		B2180B7D5FEE3422A597D3DB611D479E /* JWPermissionType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermissionType.swift; path = JWPermissionKit/Classes/JWPermissionType.swift; sourceTree = "<group>"; };
 		B46D65138CB2C1A2B184A2C46A14371D /* Pods-JWPermissionKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JWPermissionKit_Example-dummy.m"; sourceTree = "<group>"; };
-		B5E1386A15D091E5BEB066BF2B5845A4 /* JWPermissionStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermissionStatus.swift; path = JWPermissionKit/Classes/JWPermissionStatus.swift; sourceTree = "<group>"; };
-		B5ED8152D07B056B0B7296A9FACF7745 /* JWPermissionKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JWPermissionKit.xcconfig; sourceTree = "<group>"; };
 		BC70F0779B19F9A6FEE846BDDF6045AA /* Pods_JWPermissionKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JWPermissionKit_Tests.framework; path = "Pods-JWPermissionKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BF966E8D7C6551AF5CB92D3DBB4BBCE6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BD71F9D7CFD40FCDD00EE188EB164DEB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		C5C14948826FFE6C7EF10563FC7D6CEF /* Pods-JWPermissionKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JWPermissionKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		C60B0ACE639EDF333AC85DCEC7A0B3EE /* Pods-JWPermissionKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-JWPermissionKit_Example.modulemap"; sourceTree = "<group>"; };
 		CB4607EFCA7C5F75397649E792E2AFCB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D40467304D46111A093F5436404AF097 /* JWPermissionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JWPermissionKit.modulemap; sourceTree = "<group>"; };
-		D5BD00D190C5DCB08ECCA4AFE446E8E8 /* JWPermissionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = JWPermissionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DFAA59428C4C670293565DFC9D4A6864 /* Pods_JWPermissionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_JWPermissionKit_Example.framework; path = "Pods-JWPermissionKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E05F6693D27BA3BF48C5C9BAA67A7364 /* JWPermissionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JWPermissionKit.framework; path = JWPermissionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAF9AB4AA71B900EE83CCB620CC72685 /* JWPermissionAlert.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JWPermissionAlert.swift; path = JWPermissionKit/Classes/JWPermissionAlert.swift; sourceTree = "<group>"; };
 		F06B1DCFE0196C2F6BC29FA952591153 /* Pods-JWPermissionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-JWPermissionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F5CBA7D9FCF1600E3DFC502AC9140CE6 /* Pods-JWPermissionKit_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-JWPermissionKit_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		F72C018EAD6CE892F5D7972697155AE8 /* Pods-JWPermissionKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-JWPermissionKit_Tests-dummy.m"; sourceTree = "<group>"; };
 		F9281D7F02F9758C1F029429B12F3CA7 /* Pods-JWPermissionKit_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-JWPermissionKit_Tests-Info.plist"; sourceTree = "<group>"; };
 		FBBAA09983376710ED2A54CA9C5901E7 /* Pods-JWPermissionKit_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-JWPermissionKit_Tests-umbrella.h"; sourceTree = "<group>"; };
+		FC2F0DC7DE39B03A947BB302F7F722B2 /* JWPermissionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JWPermissionKit-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		05094F87DE864BC049880A725173179B /* Frameworks */ = {
+		374333ED84844FD5A6C80917B2505346 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56E60AE4A9936D06245FA01C5E88C248 /* Foundation.framework in Frameworks */,
+				B9EE4A23C4D99FDEBDD0A6905EDD1744 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +123,16 @@
 			path = "Target Support Files/Pods-JWPermissionKit_Tests";
 			sourceTree = "<group>";
 		};
+		29066726A92A9201AF7592BCD1A39C3F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3B50C629596D36A10A9EF82A8FDB6217 /* JWPermissionKit.podspec */,
+				BD71F9D7CFD40FCDD00EE188EB164DEB /* LICENSE */,
+				2143F08CAFABFAE8DB7982139987676C /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
 		2A39E788CCC00BF6FA39D643A693B82A /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,36 +142,41 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		355F08033304E506E2DD71D5B0906062 /* Support Files */ = {
+		300A1A8B81086582273275C18950FAB4 /* JWPermissionKit */ = {
 			isa = PBXGroup;
 			children = (
-				D40467304D46111A093F5436404AF097 /* JWPermissionKit.modulemap */,
-				B5ED8152D07B056B0B7296A9FACF7745 /* JWPermissionKit.xcconfig */,
-				9934FEECF6C12A018799DC169A8EEF36 /* JWPermissionKit-dummy.m */,
-				450CE781B10787AA2231FBCCCD36106C /* JWPermissionKit-Info.plist */,
-				5801A3FF36918080F92D76E5DB962234 /* JWPermissionKit-prefix.pch */,
-				576DF1E540BE03D95F03EA840645F812 /* JWPermissionKit-umbrella.h */,
+				9C3D38BDCE8836AB34CC29D4EBCE15AA /* JWPermission.swift */,
+				EAF9AB4AA71B900EE83CCB620CC72685 /* JWPermissionAlert.swift */,
+				AC872C94255074D19EB03A150A189578 /* JWPermissionStatus.swift */,
+				B2180B7D5FEE3422A597D3DB611D479E /* JWPermissionType.swift */,
+				BC48AC11FAB4F8EF8F9952DB6FBEC689 /* PermissionTypes */,
+				29066726A92A9201AF7592BCD1A39C3F /* Pod */,
+				8FC54B846ED536504F08519D3121EDE4 /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/JWPermissionKit";
+			name = JWPermissionKit;
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		8CBF564F0A447AA7F124F75C4DF47BDE /* Development Pods */ = {
+		8445A4B278F97C61D74A363B6E3237A5 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D76EB8B4E57BC1F0107E60162FD26432 /* JWPermissionKit */,
+				300A1A8B81086582273275C18950FAB4 /* JWPermissionKit */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		91E8E1771C76D208B4BB9F84A36B7312 /* Pod */ = {
+		8FC54B846ED536504F08519D3121EDE4 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D5BD00D190C5DCB08ECCA4AFE446E8E8 /* JWPermissionKit.podspec */,
-				28F615154538CFE21A45DA273B55C9DB /* LICENSE */,
-				BF966E8D7C6551AF5CB92D3DBB4BBCE6 /* README.md */,
+				76AB5E541F8BCF0177CA5F49736A5598 /* JWPermissionKit.modulemap */,
+				6B74336DE43A4CE311B19797B70F5D85 /* JWPermissionKit.xcconfig */,
+				FC2F0DC7DE39B03A947BB302F7F722B2 /* JWPermissionKit-dummy.m */,
+				320BD68E5C90193B7BE30D038B69598B /* JWPermissionKit-Info.plist */,
+				7F1E5B25FA7C0B53867C8B0E63BBBA90 /* JWPermissionKit-prefix.pch */,
+				82DB3FE4820EDA20BA7327733383092B /* JWPermissionKit-umbrella.h */,
 			);
-			name = Pod;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/JWPermissionKit";
 			sourceTree = "<group>";
 		};
 		9B055D0CFEA43187E72B03DED11F5662 /* iOS */ = {
@@ -193,11 +214,20 @@
 			path = "Target Support Files/Pods-JWPermissionKit_Example";
 			sourceTree = "<group>";
 		};
+		BC48AC11FAB4F8EF8F9952DB6FBEC689 /* PermissionTypes */ = {
+			isa = PBXGroup;
+			children = (
+				47B9656E217DEA709DF2E02CC2094AAC /* Microphone.swift */,
+			);
+			name = PermissionTypes;
+			path = JWPermissionKit/Classes/PermissionTypes;
+			sourceTree = "<group>";
+		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				8CBF564F0A447AA7F124F75C4DF47BDE /* Development Pods */,
+				8445A4B278F97C61D74A363B6E3237A5 /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				9D4293D476AFB64DA82DA0553046A7B0 /* Products */,
 				2A39E788CCC00BF6FA39D643A693B82A /* Targets Support Files */,
@@ -212,26 +242,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D76EB8B4E57BC1F0107E60162FD26432 /* JWPermissionKit */ = {
-			isa = PBXGroup;
-			children = (
-				B5E1386A15D091E5BEB066BF2B5845A4 /* JWPermissionStatus.swift */,
-				7275FACE1AD3DED832F126EF6AFB8655 /* JWPermissionType.swift */,
-				91E8E1771C76D208B4BB9F84A36B7312 /* Pod */,
-				355F08033304E506E2DD71D5B0906062 /* Support Files */,
-			);
-			name = JWPermissionKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		57AA40367BA47CF3269F84F7BB63E059 /* Headers */ = {
+		649F62AA8EFC84E4B11B3AFF73F6420F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E3C93949B351ACFE5A9F323BF52170 /* JWPermissionKit-umbrella.h in Headers */,
+				073959820C4E256BC9FAF072CBCA9413 /* JWPermissionKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,12 +274,12 @@
 /* Begin PBXNativeTarget section */
 		87AAF8B7384DA0B64B48F1BECD47967B /* JWPermissionKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5C8886CB9603206E245E934D9AD0038 /* Build configuration list for PBXNativeTarget "JWPermissionKit" */;
+			buildConfigurationList = EC5AE858C7135743C8711C34D1DDFC5C /* Build configuration list for PBXNativeTarget "JWPermissionKit" */;
 			buildPhases = (
-				57AA40367BA47CF3269F84F7BB63E059 /* Headers */,
-				A6F8AFEA5D5F6290B0D6FED2B7535EF2 /* Sources */,
-				05094F87DE864BC049880A725173179B /* Frameworks */,
-				918CB42CDD146A3B94A74E769FC7B7C9 /* Resources */,
+				649F62AA8EFC84E4B11B3AFF73F6420F /* Headers */,
+				9C6B1C4011280C4985A2196FC5B49A54 /* Sources */,
+				374333ED84844FD5A6C80917B2505346 /* Frameworks */,
+				5C36F06FCC715694994CB44CC35B8AFE /* Resources */,
 			);
 			buildRules = (
 			);
@@ -339,7 +357,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		918CB42CDD146A3B94A74E769FC7B7C9 /* Resources */ = {
+		5C36F06FCC715694994CB44CC35B8AFE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -379,13 +397,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A6F8AFEA5D5F6290B0D6FED2B7535EF2 /* Sources */ = {
+		9C6B1C4011280C4985A2196FC5B49A54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF561E43272602CD32CAB477812CE908 /* JWPermissionKit-dummy.m in Sources */,
-				2AE43A00BDB8B60D46EB52CEBEF82325 /* JWPermissionStatus.swift in Sources */,
-				8E8AEB207BBEF4739AD2E185BDCAE93C /* JWPermissionType.swift in Sources */,
+				E2D84A343E8FAFCF493855D79989D074 /* JWPermission.swift in Sources */,
+				A28C90FB34C198E3D276CF135EB19293 /* JWPermissionAlert.swift in Sources */,
+				84B1CA7082AC791994AF4203670575F2 /* JWPermissionKit-dummy.m in Sources */,
+				0A2935618494AC3CE915D6EBD3D2570D /* JWPermissionStatus.swift in Sources */,
+				467ED65F4DBD155D1F7E6C7A11F6314C /* JWPermissionType.swift in Sources */,
+				96181CFE60AED55D89E54440C0000774 /* Microphone.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,9 +560,40 @@
 			};
 			name = Release;
 		};
-		26123EE16FA262E3CE9F5419B81FC731 /* Release */ = {
+		266107C37BE97E89876D35DBD511B765 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5ED8152D07B056B0B7296A9FACF7745 /* JWPermissionKit.xcconfig */;
+			baseConfigurationReference = 6B74336DE43A4CE311B19797B70F5D85 /* JWPermissionKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JWPermissionKit/JWPermissionKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JWPermissionKit/JWPermissionKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/JWPermissionKit/JWPermissionKit.modulemap";
+				PRODUCT_MODULE_NAME = JWPermissionKit;
+				PRODUCT_NAME = JWPermissionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		58D43BFD5F8AD60E1A943C17E08896AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B74336DE43A4CE311B19797B70F5D85 /* JWPermissionKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -664,37 +716,6 @@
 			};
 			name = Release;
 		};
-		D6E5DEA157EBB1D6B4AE011BAE7025A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5ED8152D07B056B0B7296A9FACF7745 /* JWPermissionKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JWPermissionKit/JWPermissionKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JWPermissionKit/JWPermissionKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/JWPermissionKit/JWPermissionKit.modulemap";
-				PRODUCT_MODULE_NAME = JWPermissionKit;
-				PRODUCT_NAME = JWPermissionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		D9507037A18C34C8F6F41F44B8B8D687 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A06DDC84A136B72D6EDAD35FBF48FB01 /* Pods-JWPermissionKit_Example.debug.xcconfig */;
@@ -758,11 +779,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F5C8886CB9603206E245E934D9AD0038 /* Build configuration list for PBXNativeTarget "JWPermissionKit" */ = {
+		EC5AE858C7135743C8711C34D1DDFC5C /* Build configuration list for PBXNativeTarget "JWPermissionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D6E5DEA157EBB1D6B4AE011BAE7025A2 /* Debug */,
-				26123EE16FA262E3CE9F5419B81FC731 /* Release */,
+				266107C37BE97E89876D35DBD511B765 /* Debug */,
+				58D43BFD5F8AD60E1A943C17E08896AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

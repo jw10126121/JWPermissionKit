@@ -24,4 +24,20 @@ extension JWPermissionType: CustomStringConvertible {
         }
     }
     
+    public var infoKey: String {
+        switch self {
+        case .microphone:
+            return "NSMicrophoneUsageDescription"
+        }
+    }
+    
 }
+
+//internal extension String {
+//
+//    static let photoLibraryUsageDescription      = "NSPhotoLibraryUsageDescription"
+//    static let cameraUsageDescription            = "NSCameraUsageDescription"
+//    static let requestedNotifications            = "permission.requestedNotifications"
+//    static let microphoneUsageDescription        = "NSMicrophoneUsageDescription"
+//
+//}
