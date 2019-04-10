@@ -6,7 +6,7 @@ target 'JWPermissionKit_Example' do
   pod 'JWPermissionKit/Photos', :path => '../'
   pod 'JWPermissionKit/Camera', :path => '../'
   pod 'JWPermissionKit/Microphone', :path => '../'
-  pod 'JWPermissionKit/RxSwift', :path => '../'
+#  pod 'JWPermissionKit/RxSwift', :path => '../'
   pod 'SnapKit'
   target 'JWPermissionKit_Tests' do
     inherit! :search_paths

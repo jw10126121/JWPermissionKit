@@ -13,8 +13,6 @@ public class JWPermission: NSObject {
 //    /// 单例，必须配合configPermission方法使用
 //    public static let shared: JWPermission = JWPermission()
     
-    /// 授权状态回调
-    public typealias StatusCallback = (JWPermissionStatus) -> Void
 
     #if JW_PERMISSION_CAMERA
     /// 摄像头权限单例
@@ -58,12 +56,7 @@ public class JWPermission: NSObject {
             /// 摄像头
             case .camera:       return statusCamera
             #endif
-            
-//            #if swift(<5.0)
-//            default:               return .notDetermined
-//            #else
-//            @unknown default:      return .notDetermined
-//            #endif
+        
         }
     }
     
@@ -88,9 +81,9 @@ public class JWPermission: NSObject {
     }()
     
     
-    private var statusHandle: StatusCallback?
+    private var statusHandle: JWPermissionTypeProtocol.StatusCallback?
     /// 请求授权并回调状态
-    open func request(_ callback: @escaping StatusCallback) {
+    open func request(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         
         /// 保存回调
         self.statusHandle = callback
@@ -122,7 +115,7 @@ public class JWPermission: NSObject {
     }
     
     /// 请求具体授权
-    fileprivate func requestAuthorization(_ callback: @escaping StatusCallback) {
+    fileprivate func requestAuthorization(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         
         switch type {
             

@@ -17,7 +17,7 @@ internal extension JWPermission {
     }
 
     
-    func requestCamera(_ callback: @escaping StatusCallback) {
+    func requestCamera(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         guard let _ = Bundle.main.object(forInfoDictionaryKey: JWPermissionType.camera.infoKey) else {
             print("WARNING: \(JWPermissionType.camera.infoKey) not found in Info.plist")
             callback(.disabled)
@@ -47,6 +47,29 @@ fileprivate extension AVAuthorizationStatus {
     }
     
 }
+
+
+/// 摄像头权限相关
+public final class JWCamera: JWPermissionTypeProtocol {
+    /// 权限状态
+    public var status: JWPermissionStatus {
+        return AVCaptureDevice.authorizationStatus(for: AVMediaType.video).permissionStatus
+    }
+    
+    /// 请求权限
+    public func requestPermission(_ callback: @escaping StatusCallback) {
+        guard let _ = Bundle.main.object(forInfoDictionaryKey: JWPermissionType.camera.infoKey) else {
+            print("WARNING: \(JWPermissionType.camera.infoKey) not found in Info.plist")
+            callback(.disabled)
+            return
+        }
+        
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { _ in
+            callback(self.status)
+        }
+    }
+}
+
 
 #endif
 

@@ -18,7 +18,7 @@ extension JWPermission {
     }
     
     /// 请求获取麦克风权限
-    func requestMicrophone(_ callback: @escaping StatusCallback) {
+    func requestMicrophone(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         
         guard let _ = Bundle.main.object(forInfoDictionaryKey: JWPermissionType.microphone.infoKey) else {
             print("WARNING: \(JWPermissionType.microphone.infoKey) not found in Info.plist")

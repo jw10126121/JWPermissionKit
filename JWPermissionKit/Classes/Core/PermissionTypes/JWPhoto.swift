@@ -17,7 +17,7 @@ extension JWPermission {
     }
     
     /// 请求状态
-    func requestPhotos(_ callback: @escaping StatusCallback) {
+    func requestPhotos(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         
         guard Bundle.main.object(forInfoDictionaryKey: JWPermissionType.photos.infoKey) != nil else {
             print("WARNING: \(JWPermissionType.photos.infoKey) not found in Info.plist")

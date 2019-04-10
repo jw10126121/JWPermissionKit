@@ -7,7 +7,19 @@
 
 import Foundation
 
-
+/// 权限类型协议
+public protocol JWPermissionTypeProtocol {
+    
+    /// 授权状态回调
+    typealias StatusCallback = (JWPermissionStatus) -> Void
+    
+    /// 权限状态
+    var status: JWPermissionStatus { get }
+    
+    /// 请求权限
+    func requestPermission(_ callback: @escaping StatusCallback)
+    
+}
 
 /// 授权类型
 public enum JWPermissionType {

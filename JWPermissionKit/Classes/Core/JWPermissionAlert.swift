@@ -58,7 +58,7 @@ open class JWPermissionAlert {
         
     }
     
-    fileprivate var callbacks: JWPermission.StatusCallback { return permission.callbacks }
+    fileprivate var callbacks: JWPermissionTypeProtocol.StatusCallback { return permission.callbacks }
     fileprivate func cancelHandler(_ action: UIAlertAction) { callbacks(status) }
     
 }
