@@ -16,8 +16,40 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Description of what the lane does"
-  lane :custom_lane do
-    # add actions here: https://docs.fastlane.tools/actions
+
+  desc "unit test"
+  lane :test do
+  	scan(
+    	workspace: "Example/JWPermissionKit.xcworkspace", 
+    	scheme: "JWPermissionKit_Tests", 
+    	devices: ["iPhone 8"])
+  	UI.message("Test Succeeded")
   end
+
+  desc "release new version"
+  lane :release do |options|
+    target_version = options[:version]
+    raise "The version is missed." if target_version.nil?
+
+    scan(
+    	workspace: "Example/JWPermissionKit.xcworkspace", 
+    	scheme: "JWPermissionKit_Tests", 
+    	devices: ["iPhone 8"])
+
+    version_bump_podspec(
+    	path: "JWPermissionKit.podspec", 
+    	version_number: target_version)
+
+    git_add(path: ["./JWPermissionKit.podspec", "./fastlane"])
+    git_commit(
+      path: ["./JWPermissionKit.podspec", "./fastlane"], 
+      message: "release #{target_version} version")
+    
+    add_git_tag tag: target_version
+    push_to_git_remote
+
+    pod_push
+    
+  end
+
 end
