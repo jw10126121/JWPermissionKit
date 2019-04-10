@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'JWPermissionKit'
-    s.version          = '0.0.3'
+    s.version          = '0.0.1'
     s.summary          = 'App权限管理'
     s.homepage         = 'https://github.com/jw10126121/JWPermissionKit'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
