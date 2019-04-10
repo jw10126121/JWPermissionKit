@@ -31,10 +31,10 @@ platform :ios do
     target_version = options[:version]
     raise "The version is missed." if target_version.nil?
 
-    scan(
-    	workspace: "Example/JWPermissionKit.xcworkspace", 
-    	scheme: "JWPermissionKit_Tests", 
-    	devices: ["iPhone 8"])
+    # scan(
+    # 	workspace: "Example/JWPermissionKit.xcworkspace", 
+    # 	scheme: "JWPermissionKit_Tests", 
+    # 	devices: ["iPhone 8"])
 
     version_bump_podspec(
     	path: "JWPermissionKit.podspec", 
