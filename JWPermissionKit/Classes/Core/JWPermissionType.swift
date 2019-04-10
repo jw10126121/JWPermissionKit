@@ -13,6 +13,8 @@ public protocol JWPermissionTypeProtocol {
     /// 授权状态回调
     typealias StatusCallback = (JWPermissionStatus) -> Void
     
+    var type: JWPermissionType { get }
+    
     /// 权限状态
     var status: JWPermissionStatus { get }
     

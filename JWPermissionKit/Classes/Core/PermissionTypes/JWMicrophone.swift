@@ -51,4 +51,31 @@ fileprivate extension AVAuthorizationStatus {
     }
     
 }
+
+/// 麦克风权限相关
+fileprivate final class JWMicrophone: JWPermissionTypeProtocol {
+    
+    /// 类型
+    public var type: JWPermissionType { return .microphone }
+    
+    /// 权限状态
+    public var status: JWPermissionStatus {
+        return AVCaptureDevice.authorizationStatus(for: AVMediaType.audio).permissionStatus
+    }
+    
+    /// 请求权限
+    public func requestPermission(_ callback: @escaping StatusCallback) {
+        guard let _ = Bundle.main.object(forInfoDictionaryKey: JWPermissionType.microphone.infoKey) else {
+            print("WARNING: \(JWPermissionType.microphone.infoKey) not found in Info.plist")
+            callback(.disabled)
+            return
+        }
+        
+        AVCaptureDevice.requestAccess(for: AVMediaType.audio) { _ in
+            callback(self.status)
+        }
+    }
+    
+}
+
 #endif

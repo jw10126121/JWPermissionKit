@@ -65,6 +65,10 @@ extension ViewController: UITableViewDelegate {
         switch menuText {
         case "相册":
 
+//            LJWPermission.camera.requestPermission { status in
+//                debugPrint(status.description)
+//            }
+            
             JWPermission.photos.request { (status) in
                 debugPrint(status.description)
             }

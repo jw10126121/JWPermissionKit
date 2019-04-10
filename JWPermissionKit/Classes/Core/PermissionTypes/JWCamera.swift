@@ -50,7 +50,11 @@ fileprivate extension AVAuthorizationStatus {
 
 
 /// 摄像头权限相关
-public final class JWCamera: JWPermissionTypeProtocol {
+fileprivate final class JWCamera: JWPermissionTypeProtocol {
+    
+    /// 类型
+    public var type: JWPermissionType { return .camera }
+    
     /// 权限状态
     public var status: JWPermissionStatus {
         return AVCaptureDevice.authorizationStatus(for: AVMediaType.video).permissionStatus

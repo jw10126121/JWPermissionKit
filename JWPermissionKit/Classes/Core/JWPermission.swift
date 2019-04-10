@@ -7,13 +7,18 @@
 
 import Foundation
 
+
 /// 授权管理
 public class JWPermission: NSObject {
     
 //    /// 单例，必须配合configPermission方法使用
 //    public static let shared: JWPermission = JWPermission()
     
-
+    #if JW_PERMISSION_PHOTOS
+    /// 相册权限单例
+    public static let photos = JWPermission(type: .photos)
+    #endif
+    
     #if JW_PERMISSION_CAMERA
     /// 摄像头权限单例
     public static let camera = JWPermission(type: .camera)
@@ -24,40 +29,11 @@ public class JWPermission: NSObject {
     public static let microphone = JWPermission(type: .microphone)
     #endif
     
-    #if JW_PERMISSION_PHOTOS
-    /// 相册权限单例
-    public static let photos = JWPermission(type: .photos)
-    #endif
     
     /// 当前授权类型
     public var type: JWPermissionType
     init(type: JWPermissionType) {
         self.type = type
-    }
-    
-    /// 当前状态
-    open var status: JWPermissionStatus {
-        
-        switch type {
-            
-            case .none:         return .authorized
-            
-            #if JW_PERMISSION_PHOTOS
-            /// 读取相册权限
-            case .photos:       return statusPhotos
-            #endif
-            
-            #if JW_PERMISSION_MICROPHONE
-            /// 读取麦克风权限
-            case .microphone:   return statusMicrophone
-            #endif
-
-            #if JW_PERMISSION_CAMERA
-            /// 摄像头
-            case .camera:       return statusCamera
-            #endif
-        
-        }
     }
     
     // ---- 弹窗设置 ----
@@ -114,13 +90,43 @@ public class JWPermission: NSObject {
         }
     }
     
+    
+}
+
+extension JWPermission {
+    
+    /// 当前状态
+    open var status: JWPermissionStatus {
+        
+        switch type {
+            
+        case .none:         return .authorized
+            
+            #if JW_PERMISSION_PHOTOS
+            /// 读取相册权限
+        case .photos:       return statusPhotos
+            #endif
+            
+            #if JW_PERMISSION_MICROPHONE
+            /// 读取麦克风权限
+        case .microphone:   return statusMicrophone
+            #endif
+            
+            #if JW_PERMISSION_CAMERA
+            /// 摄像头
+        case .camera:       return statusCamera
+            #endif
+            
+        }
+    }
+    
     /// 请求具体授权
     fileprivate func requestAuthorization(_ callback: @escaping JWPermissionTypeProtocol.StatusCallback) {
         
         switch type {
             
         case .none:         ()
-
+            
             #if JW_PERMISSION_PHOTOS
             /// 读取相册权限
         case .photos:       requestPhotos(callback)
@@ -135,13 +141,12 @@ public class JWPermission: NSObject {
             /// 摄像头
         case .camera:       requestCamera(callback)
             #endif
-
-//            #if swift(>=5.0)
-//            @unknown default: break
-//            #endif
+            
+            //            #if swift(>=5.0)
+            //            @unknown default: break
+            //            #endif
         }
     }
-    
     
 }
 

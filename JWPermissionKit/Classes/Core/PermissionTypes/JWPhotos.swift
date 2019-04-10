@@ -51,6 +51,33 @@ fileprivate extension PHAuthorizationStatus {
     }
     
 }
+
+/// 相册权限相关
+fileprivate final class JWPhotos: JWPermissionTypeProtocol {
+    
+    /// 类型
+    public var type: JWPermissionType { return .photos }
+    
+    /// 权限状态
+    public var status: JWPermissionStatus {
+        return PHPhotoLibrary.authorizationStatus().permissionStatus
+    }
+    
+    /// 请求权限
+    public func requestPermission(_ callback: @escaping StatusCallback) {
+        guard Bundle.main.object(forInfoDictionaryKey: JWPermissionType.photos.infoKey) != nil else {
+            print("WARNING: \(JWPermissionType.photos.infoKey) not found in Info.plist")
+            callback(.disabled)
+            return
+        }
+        
+        PHPhotoLibrary.requestAuthorization { _ in
+            callback(self.status)
+        }
+    }
+    
+}
+
 #endif
 
 
