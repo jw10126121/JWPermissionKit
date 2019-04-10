@@ -13,6 +13,8 @@ public enum JWPermissionType {
     /// 麦克风
     case microphone
     
+    /// 摄像头
+    
 }
 
 extension JWPermissionType: CustomStringConvertible {
@@ -21,6 +23,9 @@ extension JWPermissionType: CustomStringConvertible {
         switch self {
         case .microphone:
             return "麦克风"
+            #if swift(>=5.0)
+        @unknown default: break
+            #endif
         }
     }
     
@@ -28,6 +33,9 @@ extension JWPermissionType: CustomStringConvertible {
         switch self {
         case .microphone:
             return "NSMicrophoneUsageDescription"
+            #if swift(>=5.0)
+        @unknown default: break
+            #endif
         }
     }
     

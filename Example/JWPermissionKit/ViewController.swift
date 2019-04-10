@@ -7,12 +7,31 @@
 //
 
 import UIKit
+import SnapKit
+import JWPermissionKit
 
 class ViewController: UIViewController {
+    
+    let menuList = ["麦克风权限"]
+    
+    lazy var listView: UITableView = {
+        let view = UITableView()
+        view.rowHeight = 50
+        view.dataSource = self
+        view.delegate = self
+        view.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        view.addSubview(listView)
+        listView.snp.makeConstraints {
+            $0.left.top.bottom.right.equalTo(0)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,3 +41,28 @@ class ViewController: UIViewController {
 
 }
 
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        cell.textLabel?.text = menuList[indexPath.row]
+        return cell
+    }
+}
+
+
+extension ViewController: UITableViewDelegate {
+     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        JWPermission.microphone.request { (status) in
+            debugPrint(status.description)
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+}

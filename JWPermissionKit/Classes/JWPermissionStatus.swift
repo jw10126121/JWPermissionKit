@@ -13,13 +13,13 @@ public enum JWPermissionStatus: Int {
     case authorized
     /// 用户拒绝
     case denied
-    /// 禁用
+    /// 禁用(此应用程序没有被授权访问,可能是家长控制权限)
     case disabled
-    /// 用户尚未做出选择这个应用程序的问候
+    /// 未知，首次申请权限
     case notDetermined
 }
 
-/// 描述
+/// 授权状态描述
 extension JWPermissionStatus: CustomStringConvertible {
     
     /// 描述
@@ -32,7 +32,10 @@ extension JWPermissionStatus: CustomStringConvertible {
         case .disabled:
             return "禁用"
         case .notDetermined:
-            return "用户尚未做出选择这个应用程序的问候"
+            return "未申请权限"
+            #if swift(>=5.0)
+        @unknown default: break
+            #endif
         }
     }
     

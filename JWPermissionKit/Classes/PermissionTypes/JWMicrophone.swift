@@ -18,8 +18,12 @@ extension JWPermission {
         
         switch status {
             case .authorized:          return .authorized
-            case .denied, .restricted: return .denied
+            case .denied:              return .denied
+            case .restricted:          return .disabled
             case .notDetermined:       return .notDetermined
+//            #if swift(>=5.0)
+//        @unknown default: break
+//            #endif
         }
     }
     

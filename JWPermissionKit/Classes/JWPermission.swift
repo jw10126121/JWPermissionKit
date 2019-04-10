@@ -8,6 +8,7 @@
 import Foundation
 
 
+
 /// 授权管理
 public class JWPermission: NSObject {
 
@@ -29,9 +30,30 @@ public class JWPermission: NSObject {
         switch type {
             /// 读取麦克风权限
             case .microphone:   return statusMicrophone
+            #if swift(>=5.0)
+            @unknown default: break
+            #endif
         }
         fatalError()
     }
+    
+    /// 用户未授权过时弹自定义授权对话框
+    public var isPresentPermissionAlert: Bool = false
+    
+    
+    /// 是否 用户拒绝后弹自定义授权对话框
+    public var isPresentDeniedAlert: Bool = true
+    /// 用户拒绝后弹自定义授权对话框
+    open lazy var alertForUserDenied: JWPermissionDeniedAlert = {
+        return JWPermissionDeniedAlert(permission: self)
+    }()
+    
+    /// 是否 用户权限被禁用后 弹 自定义授权对话框
+    public var isPresentDisabledAlert: Bool = true
+    /// 用户权限被禁用后 弹 自定义授权对话框
+    open lazy var alertForDisabled: JWPermissionDisabledAlert = {
+        return JWPermissionDisabledAlert(permission: self)
+    }()
     
     var statusHandle: StatusCallback?
     /// 请求授权并回调状态
@@ -56,10 +78,28 @@ public class JWPermission: NSObject {
             /// 用户拒绝
             case .denied:
                 // 弹出请求框
+                if isPresentDeniedAlert {
+                    alertForUserDenied.alert()
+                } else {
+                    callbacks(status)
+                }
                 break
+            /// 被禁用
             case .disabled:
+                if isPresentDisabledAlert {
+                    alertForDisabled.alert()
+                } else {
+                    callbacks(status)
+                }
                 break
             case .notDetermined:
+                /// 是否弹出自定义授权框
+                if isPresentPermissionAlert {
+                    
+                } else {
+                    requestAuthorization(callbacks)
+                }
+                
                 break
             #if swift(>=5.0)
             @unknown default: break
@@ -84,6 +124,9 @@ public class JWPermission: NSObject {
             case .microphone:
                 requestMicrophone(callback)
             break
+            #if swift(>=5.0)
+            @unknown default: break
+            #endif
         }
     }
     
@@ -92,12 +135,12 @@ public class JWPermission: NSObject {
 
 extension JWPermission {
     
-    /// 自我的文本表示
+    /// 描述文本
     override open var description: String {
         return type.description
     }
     
-    /// 此实例的文本表示,适合于调试
+    /// 调试描述文本
     override open var debugDescription: String {
         return "\(type): \(status)"
     }

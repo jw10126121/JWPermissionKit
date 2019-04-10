@@ -1,8 +1,14 @@
 PODS:
   - JWPermissionKit (0.0.3)
+  - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - JWPermissionKit (from `../`)
+  - SnapKit
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SnapKit
 
 EXTERNAL SOURCES:
   JWPermissionKit:
@@ -10,7 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   JWPermissionKit: f0a3084ecb11101be17afda13098c5286a822ada
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 7c9aee8ae07fc45845134ef3700ef9a845cc8830
+PODFILE CHECKSUM: 7d8606dab5f77f58e865e5a144cac0a5cd8573b2
 
 COCOAPODS: 1.7.0.beta.2
