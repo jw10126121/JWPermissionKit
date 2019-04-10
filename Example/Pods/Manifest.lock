@@ -6,16 +6,22 @@ PODS:
     - JWPermissionKit/Core
   - JWPermissionKit/Photos (0.0.3):
     - JWPermissionKit/Core
+  - JWPermissionKit/RxSwift (0.0.3):
+    - JWPermissionKit/Core
+    - RxSwift
+  - RxSwift (4.5.0)
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
   - JWPermissionKit/Camera (from `../`)
   - JWPermissionKit/Microphone (from `../`)
   - JWPermissionKit/Photos (from `../`)
+  - JWPermissionKit/RxSwift (from `../`)
   - SnapKit
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - RxSwift
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -23,9 +29,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JWPermissionKit: 9677155fc93f31f776ecf06402889753168d2127
+  JWPermissionKit: 79faa446b6cbef7a07333c7ee373706f8e440e67
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 176d19b40fb462bc87eebddd0a9cfc2bd4bd321a
+PODFILE CHECKSUM: 8e5cb2701ade027abd580aed3d157b76b47e0eb7
 
 COCOAPODS: 1.7.0.beta.2

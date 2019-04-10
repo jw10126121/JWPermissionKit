@@ -20,7 +20,14 @@ Pod::Spec.new do |s|
     
     s.default_subspec = 'Core'
     s.subspec 'Core' do |co|
-        co.source_files = 'JWPermissionKit/Classes/**/*.swift'
+        co.source_files = 'JWPermissionKit/Classes/Core/**/*.swift'
+    end
+    
+    s.subspec 'RxSwift' do |rx|
+        rx.source_files = 'JWPermissionKit/Classes/RxSwift/**/*.swift'
+        rx.dependency 'JWPermissionKit/Core'
+        rx.dependency 'RxSwift'
+        #rx.dependency 'RxCocoa'
     end
     
     s.subspec 'Photos' do |ph|

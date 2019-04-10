@@ -25,7 +25,19 @@
   "subspecs": [
     {
       "name": "Core",
-      "source_files": "JWPermissionKit/Classes/**/*.swift"
+      "source_files": "JWPermissionKit/Classes/Core/**/*.swift"
+    },
+    {
+      "name": "RxSwift",
+      "source_files": "JWPermissionKit/Classes/RxSwift/**/*.swift",
+      "dependencies": {
+        "JWPermissionKit/Core": [
+
+        ],
+        "RxSwift": [
+
+        ]
+      }
     },
     {
       "name": "Photos",
