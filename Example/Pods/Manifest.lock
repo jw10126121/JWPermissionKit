@@ -1,9 +1,17 @@
 PODS:
-  - JWPermissionKit (0.0.3)
+  - JWPermissionKit/Camera (0.0.3):
+    - JWPermissionKit/Core
+  - JWPermissionKit/Core (0.0.3)
+  - JWPermissionKit/Microphone (0.0.3):
+    - JWPermissionKit/Core
+  - JWPermissionKit/Photos (0.0.3):
+    - JWPermissionKit/Core
   - SnapKit (4.2.0)
 
 DEPENDENCIES:
-  - JWPermissionKit (from `../`)
+  - JWPermissionKit/Camera (from `../`)
+  - JWPermissionKit/Microphone (from `../`)
+  - JWPermissionKit/Photos (from `../`)
   - SnapKit
 
 SPEC REPOS:
@@ -15,9 +23,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JWPermissionKit: f0a3084ecb11101be17afda13098c5286a822ada
+  JWPermissionKit: 9677155fc93f31f776ecf06402889753168d2127
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
 
-PODFILE CHECKSUM: 7d8606dab5f77f58e865e5a144cac0a5cd8573b2
+PODFILE CHECKSUM: 176d19b40fb462bc87eebddd0a9cfc2bd4bd321a
 
 COCOAPODS: 1.7.0.beta.2

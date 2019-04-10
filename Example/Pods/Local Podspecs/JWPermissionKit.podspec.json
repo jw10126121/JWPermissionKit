@@ -14,12 +14,51 @@
     "git": "https://github.com/jw10126121/JWPermissionKit.git",
     "tag": "0.0.3"
   },
-  "source_files": "JWPermissionKit/Classes/**/*.swift",
   "platforms": {
     "ios": "9.0"
   },
   "swift_versions": [
     "4.2",
     "5.0"
+  ],
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "JWPermissionKit/Classes/**/*.swift"
+    },
+    {
+      "name": "Photos",
+      "dependencies": {
+        "JWPermissionKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JW_PERMISSION_PHOTOS"
+      }
+    },
+    {
+      "name": "Microphone",
+      "dependencies": {
+        "JWPermissionKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JW_PERMISSION_MICROPHONE"
+      }
+    },
+    {
+      "name": "Camera",
+      "dependencies": {
+        "JWPermissionKit/Core": [
+
+        ]
+      },
+      "pod_target_xcconfig": {
+        "SWIFT_ACTIVE_COMPILATION_CONDITIONS": "JW_PERMISSION_CAMERA"
+      }
+    }
   ]
 }

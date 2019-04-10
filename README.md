@@ -17,7 +17,9 @@ JWPermissionKit is available through [CocoaPods](https://cocoapods.org). To inst
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'JWPermissionKit'
+pod 'JWPermissionKit/Photos'
+pod 'JWPermissionKit/Camera'
+pod 'JWPermissionKit/Microphone'
 ```
 
 ## Author

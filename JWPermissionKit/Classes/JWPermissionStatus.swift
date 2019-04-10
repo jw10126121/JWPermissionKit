@@ -17,6 +17,9 @@ public enum JWPermissionStatus: Int {
     case disabled
     /// 未知，首次申请权限
     case notDetermined
+    
+    /// 是否授权了
+    var isAuthorized: Bool { return self == .authorized }
 }
 
 /// 授权状态描述
@@ -33,9 +36,9 @@ extension JWPermissionStatus: CustomStringConvertible {
             return "禁用"
         case .notDetermined:
             return "未申请权限"
-            #if swift(>=5.0)
-        @unknown default: break
-            #endif
+//            #if swift(>=5.0)
+//        @unknown default: break
+//            #endif
         }
     }
     

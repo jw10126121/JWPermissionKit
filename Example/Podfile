@@ -3,9 +3,10 @@ platform :ios, '9.0'
 inhibit_all_warnings!       #忽略所有警告
 
 target 'JWPermissionKit_Example' do
-  pod 'JWPermissionKit', :path => '../'
+  pod 'JWPermissionKit/Photos', :path => '../'
+  pod 'JWPermissionKit/Camera', :path => '../'
+  pod 'JWPermissionKit/Microphone', :path => '../'
   pod 'SnapKit'
-  
   target 'JWPermissionKit_Tests' do
     inherit! :search_paths
 

@@ -7,35 +7,84 @@
 
 import Foundation
 
+
+
 /// 授权类型
 public enum JWPermissionType {
     
-    /// 麦克风
-    case microphone
+    case none
     
+    #if JW_PERMISSION_PHOTOS
+    /// 读取相册权限
+    case photos
+    #endif
+    
+    #if JW_PERMISSION_MICROPHONE
+    /// 读取麦克风权限
+    case microphone
+    #endif
+    
+    #if JW_PERMISSION_CAMERA
     /// 摄像头
+    case camera
+    #endif
+    
     
 }
 
 extension JWPermissionType: CustomStringConvertible {
     
+    /// 描述，用于弹窗提示用户权限类型
     public var description: String {
         switch self {
-        case .microphone:
-            return "麦克风"
-            #if swift(>=5.0)
-        @unknown default: break
+            
+        case .none:         return ""
+            #if JW_PERMISSION_PHOTOS
+            /// 读取相册权限
+        case .photos:       return "相册"
             #endif
+            
+            #if JW_PERMISSION_MICROPHONE
+            /// 读取麦克风权限
+        case .microphone:   return "麦克风"
+            #endif
+            
+            #if JW_PERMISSION_CAMERA
+            /// 摄像头
+        case .camera:       return "摄像头"
+            #endif
+            
+//            #if swift(>=5.0)
+//        @unknown default:   return ""
+//            #endif
+
         }
     }
     
+    /// info.plist设置的文本
     public var infoKey: String {
         switch self {
-        case .microphone:
-            return "NSMicrophoneUsageDescription"
-            #if swift(>=5.0)
-        @unknown default: break
+            
+            case .none:         return ""
+
+            #if JW_PERMISSION_PHOTOS
+            /// 读取相册权限
+            case .photos:       return "NSPhotoLibraryUsageDescription"
             #endif
+            
+            #if JW_PERMISSION_MICROPHONE
+            /// 读取麦克风权限
+            case .microphone:   return "NSMicrophoneUsageDescription"
+            #endif
+            
+            #if JW_PERMISSION_CAMERA
+            /// 摄像头
+            case .camera:       return "NSCameraUsageDescription"
+            #endif
+            
+//            #if swift(>=5.0)
+//            @unknown default:   return ""
+//            #endif
         }
     }
     

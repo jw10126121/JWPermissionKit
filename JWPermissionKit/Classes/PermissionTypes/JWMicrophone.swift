@@ -5,6 +5,7 @@
 //  Created by LjwMac on 2019/4/9.
 //
 
+#if JW_PERMISSION_MICROPHONE
 import AVFoundation
 import AudioToolbox
 
@@ -13,18 +14,7 @@ extension JWPermission {
     
     /// 读取当前麦克风权限
     var statusMicrophone: JWPermissionStatus {
-        
-        let status = AVCaptureDevice.authorizationStatus(for: AVMediaType.audio)
-        
-        switch status {
-            case .authorized:          return .authorized
-            case .denied:              return .denied
-            case .restricted:          return .disabled
-            case .notDetermined:       return .notDetermined
-//            #if swift(>=5.0)
-//        @unknown default: break
-//            #endif
-        }
+        return AVCaptureDevice.authorizationStatus(for: AVMediaType.audio).permissionStatus
     }
     
     /// 请求获取麦克风权限
@@ -32,6 +22,7 @@ extension JWPermission {
         
         guard let _ = Bundle.main.object(forInfoDictionaryKey: JWPermissionType.microphone.infoKey) else {
             print("WARNING: \(JWPermissionType.microphone.infoKey) not found in Info.plist")
+            callback(.disabled)
             return
         }
         
@@ -42,3 +33,22 @@ extension JWPermission {
     }
     
 }
+
+fileprivate extension AVAuthorizationStatus {
+    
+    var permissionStatus: JWPermissionStatus {
+        switch self {
+        case .authorized:          return .authorized
+        case .denied:              return .denied
+        case .restricted:          return .disabled
+        case .notDetermined:       return .notDetermined
+            #if swift(<5.0)
+        default:               return .notDetermined
+            #else
+        @unknown default:      return .notDetermined
+            #endif
+        }
+    }
+    
+}
+#endif

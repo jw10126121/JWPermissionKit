@@ -7,19 +7,32 @@
 
 import Foundation
 
-
-
 /// 授权管理
 public class JWPermission: NSObject {
-
+    
+//    /// 单例，必须配合configPermission方法使用
+//    public static let shared: JWPermission = JWPermission()
+    
     /// 授权状态回调
     public typealias StatusCallback = (JWPermissionStatus) -> Void
 
+    #if JW_PERMISSION_CAMERA
+    /// 摄像头权限单例
+    public static let camera = JWPermission(type: .camera)
+    #endif
+    
+    #if JW_PERMISSION_MICROPHONE
     /// 麦克风权限单例
     public static let microphone = JWPermission(type: .microphone)
-
+    #endif
+    
+    #if JW_PERMISSION_PHOTOS
+    /// 相册权限单例
+    public static let photos = JWPermission(type: .photos)
+    #endif
+    
     /// 当前授权类型
-    public let type: JWPermissionType
+    public var type: JWPermissionType
     init(type: JWPermissionType) {
         self.type = type
     }
@@ -28,14 +41,33 @@ public class JWPermission: NSObject {
     open var status: JWPermissionStatus {
         
         switch type {
+            
+            case .none:         return .authorized
+            
+            #if JW_PERMISSION_PHOTOS
+            /// 读取相册权限
+            case .photos:       return statusPhotos
+            #endif
+            
+            #if JW_PERMISSION_MICROPHONE
             /// 读取麦克风权限
             case .microphone:   return statusMicrophone
-            #if swift(>=5.0)
-            @unknown default: break
             #endif
+
+            #if JW_PERMISSION_CAMERA
+            /// 摄像头
+            case .camera:       return statusCamera
+            #endif
+            
+//            #if swift(<5.0)
+//            default:               return .notDetermined
+//            #else
+//            @unknown default:      return .notDetermined
+//            #endif
         }
-        fatalError()
     }
+    
+    // ---- 弹窗设置 ----
     
     /// 用户未授权过时弹自定义授权对话框
     public var isPresentPermissionAlert: Bool = false
@@ -55,55 +87,29 @@ public class JWPermission: NSObject {
         return JWPermissionDisabledAlert(permission: self)
     }()
     
-    var statusHandle: StatusCallback?
+    
+    private var statusHandle: StatusCallback?
     /// 请求授权并回调状态
     open func request(_ callback: @escaping StatusCallback) {
         
         /// 保存回调
         self.statusHandle = callback
         
-        /// 授权开始
-        DispatchQueue.main.async {
-//            self.permissionSets.forEach { $0.willRequestPermission(self) }
-        }
-        
         /// 当前状态
         let status = self.status
         
         switch status {
             /// 已授权，直接回调
-            case .authorized:
-                callbacks(status)
-                break
+            case .authorized:    callbacks(status)
             /// 用户拒绝
-            case .denied:
-                // 弹出请求框
-                if isPresentDeniedAlert {
-                    alertForUserDenied.alert()
-                } else {
-                    callbacks(status)
-                }
-                break
+            case .denied:        isPresentDeniedAlert ? alertForUserDenied.alert() : callbacks(status)
             /// 被禁用
-            case .disabled:
-                if isPresentDisabledAlert {
-                    alertForDisabled.alert()
-                } else {
-                    callbacks(status)
-                }
-                break
-            case .notDetermined:
-                /// 是否弹出自定义授权框
-                if isPresentPermissionAlert {
-                    
-                } else {
-                    requestAuthorization(callbacks)
-                }
-                
-                break
-            #if swift(>=5.0)
-            @unknown default: break
-            #endif
+            case .disabled:      isPresentDisabledAlert ? alertForDisabled.alert() : callbacks(status)
+            /// 未使用授权
+            case .notDetermined: isPresentPermissionAlert ? () : requestAuthorization(callbacks)
+//            #if swift(>=5.0)
+//            @unknown default: break
+//            #endif
         }
         
     }
@@ -112,21 +118,34 @@ public class JWPermission: NSObject {
     internal func callbacks(_ with: JWPermissionStatus) {
         DispatchQueue.main.async {
             self.statusHandle?(self.status)
-            /// 授权结束
-//            self.permissionSets.forEach { $0.didRequestPermission(self) }
         }
     }
     
     /// 请求具体授权
-    public func requestAuthorization(_ callback: @escaping StatusCallback) {
+    fileprivate func requestAuthorization(_ callback: @escaping StatusCallback) {
         
         switch type {
-            case .microphone:
-                requestMicrophone(callback)
-            break
-            #if swift(>=5.0)
-            @unknown default: break
+            
+        case .none:         ()
+
+            #if JW_PERMISSION_PHOTOS
+            /// 读取相册权限
+        case .photos:       requestPhotos(callback)
             #endif
+            
+            #if JW_PERMISSION_MICROPHONE
+            /// 读取麦克风权限
+        case .microphone:   requestMicrophone(callback)
+            #endif
+            
+            #if JW_PERMISSION_CAMERA
+            /// 摄像头
+        case .camera:       requestCamera(callback)
+            #endif
+
+//            #if swift(>=5.0)
+//            @unknown default: break
+//            #endif
         }
     }
     

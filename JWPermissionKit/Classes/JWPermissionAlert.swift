@@ -132,7 +132,7 @@ fileprivate extension Selector {
 /// 弹对话框
 fileprivate extension UIApplication {
     
-    fileprivate var topViewController: UIViewController? {
+    var topViewController: UIViewController? {
         var vc = delegate?.window??.rootViewController
         
         while let presentedVC = vc?.presentedViewController {
@@ -142,7 +142,7 @@ fileprivate extension UIApplication {
         return vc
     }
     
-    internal func presentViewController(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func presentViewController(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
         topViewController?.present(viewController, animated: animated, completion: completion)
     }
     

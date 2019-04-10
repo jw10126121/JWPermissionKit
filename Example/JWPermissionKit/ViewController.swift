@@ -12,7 +12,7 @@ import JWPermissionKit
 
 class ViewController: UIViewController {
     
-    let menuList = ["麦克风权限"]
+    let menuList = ["相册", "摄像头", "麦克风"]
     
     lazy var listView: UITableView = {
         let view = UITableView()
@@ -58,9 +58,33 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        JWPermission.microphone.request { (status) in
-            debugPrint(status.description)
+
+        
+        let menuText = menuList[indexPath.row]
+        
+        switch menuText {
+        case "相册":
+
+            JWPermission.photos.request { (status) in
+                debugPrint(status.description)
+            }
+            break
+            
+        case "摄像头":
+            JWPermission.camera.request { (status) in
+                debugPrint(status.description)
+            }
+            break
+        case "麦克风":
+            JWPermission.microphone.request { (status) in
+                debugPrint(status.description)
+            }
+            break
+        default:
+            break
         }
+        
+
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
